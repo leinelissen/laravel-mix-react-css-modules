@@ -1,0 +1,42 @@
+{
+  "name": "laravel-mix-react-css-modules",
+  "version": "1.0.0",
+  "description": "A React CSS Modules plugin for Laravel Mix",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leinelissen/laravel-mix-react-css-modules.git"
+  },
+  "keywords": [
+    "laravel-mix",
+    "laravel",
+    "mix",
+    "react-css-modules",
+    "react",
+    "css",
+    "modules",
+    "babel",
+    "plugin",
+    "babel-plugin-react-css-modules"
+  ],
+  "author": "Lei Nelissen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leinelissen/laravel-mix-react-css-modules/issues"
+  },
+  "homepage": "https://github.com/leinelissen/laravel-mix-react-css-modules#readme",
+  "peerDependencies": {
+    "laravel-mix": "^2.1.0"
+  },
+  "dependencies": {
+    "babel-plugin-react-css-modules": "^3.4.2",
+    "postcss-nested": "^3.0.0",
+    "postcss-scss": "^1.0.5"
+  },
+  "devDependencies": {
+    "prettier": "^1.13.5"
+  }
+}
