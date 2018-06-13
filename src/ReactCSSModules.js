@@ -1,3 +1,5 @@
+import path from 'path';
+
 class ReactCSSModules {
   /**
    * Initialise the class
@@ -126,7 +128,7 @@ class ReactCSSModules {
             // Appearantly the context for laravel-mix lives in the node_modules folder
             // when calculating hashes for the ident names. This is pretty shitty behaviour,
             // but I am too lazy right now to fix it.
-            context: __dirname + "/node_modules/laravel-mix/src/builder"
+            context: path.resolve(__dirname + "/../../laravel-mix/src/builder")
           }
         ]
       ]
