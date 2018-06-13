@@ -1,5 +1,6 @@
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var path = _interopDefault(require('path'));
 var mix = _interopDefault(require('laravel-mix'));
 
 var ReactCSSModules = function ReactCSSModules() {
@@ -55,7 +56,7 @@ ReactCSSModules.prototype.babelConfig = function babelConfig () {
             exclude: "node_modules",
             handleMissingStyleName: "warn",
             generateScopedName: this.scopedName,
-            context: __dirname + "/node_modules/laravel-mix/src/builder"
+            context: path.resolve(__dirname + "/../../laravel-mix/src/builder")
         }]]
     };
 };
