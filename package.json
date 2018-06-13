@@ -2,9 +2,13 @@
   "name": "laravel-mix-react-css-modules",
   "version": "1.0.0",
   "description": "A React CSS Modules plugin for Laravel Mix",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.m.js",
+  "source": "src/index.js",
   "scripts": {
-    "format": "prettier --write '**/*.js'"
+    "format": "prettier --write 'src/*.js'",
+    "build": "microbundle --compress=false --sourcemap=false"
   },
   "repository": {
     "type": "git",
@@ -37,6 +41,7 @@
     "postcss-scss": "^1.0.5"
   },
   "devDependencies": {
+    "microbundle": "^0.4.4",
     "prettier": "^1.13.5"
   }
 }
