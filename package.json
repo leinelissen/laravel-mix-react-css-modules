@@ -38,10 +38,10 @@
   "dependencies": {
     "babel-plugin-react-css-modules": "^3.4.2",
     "postcss-nested": "^3.0.0",
-    "postcss-scss": "^1.0.5"
+    "postcss-scss": "^1.0.6"
   },
   "devDependencies": {
     "microbundle": "^0.4.4",
-    "prettier": "^1.13.5"
+    "prettier": "^1.16.4"
   }
 }
