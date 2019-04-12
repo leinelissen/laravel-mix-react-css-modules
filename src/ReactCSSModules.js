@@ -68,7 +68,7 @@ class ReactCSSModules {
   webpackConfig(config) {
     // Loop through all rules
     config.module.rules = config.module.rules.map(rule => {
-      if (!rule.loaders || rule.loaders.length > 3) {
+      if (!rule.loaders) {
         return rule;
       }
 

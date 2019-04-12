@@ -24,7 +24,7 @@ ReactCSSModules.prototype.webpackConfig = function webpackConfig (config) {
         var this$1 = this;
 
     config.module.rules = config.module.rules.map(function (rule) {
-        if (!rule.loaders || rule.loaders.length > 3) {
+        if (!rule.loaders) {
             return rule;
         }
         rule.loaders = rule.loaders.map(function (loader) {
