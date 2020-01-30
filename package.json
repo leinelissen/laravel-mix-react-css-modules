@@ -8,7 +8,7 @@
   "source": "src/index.js",
   "scripts": {
     "format": "prettier --write 'src/*.js'",
-    "build": "microbundle --compress=false --sourcemap=false"
+    "build": "microbundle --target node --no-sourcemap"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/leinelissen/laravel-mix-react-css-modules#readme",
   "peerDependencies": {
-    "laravel-mix": "^2.1.0"
+    "laravel-mix": "^5.0.1"
   },
   "dependencies": {
     "babel-plugin-react-css-modules": "^3.4.2",
@@ -41,7 +41,7 @@
     "postcss-scss": "^1.0.6"
   },
   "devDependencies": {
-    "microbundle": "^0.4.4",
+    "microbundle": "^0.11.0",
     "prettier": "^1.16.4"
   }
 }

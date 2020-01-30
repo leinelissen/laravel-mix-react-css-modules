@@ -1,5 +1,3 @@
-import path from 'path';
-
 class ReactCSSModules {
   /**
    * Initialise the class
@@ -124,11 +122,6 @@ class ReactCSSModules {
             exclude: "node_modules",
             handleMissingStyleName: "warn",
             generateScopedName: this.scopedName,
-            // THIS IS DIRTY HACK
-            // Appearantly the context for laravel-mix lives in the node_modules folder
-            // when calculating hashes for the ident names. This is pretty shitty behaviour,
-            // but I am too lazy right now to fix it.
-            context: path.resolve(__dirname + "/../../laravel-mix/src/builder")
           }
         ]
       ]
