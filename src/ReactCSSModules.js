@@ -75,8 +75,10 @@ class ReactCSSModules {
         if (loader.loader === "css-loader" || loader === "css-loader") {
           // Add our options to the loader
           let options = {
-            modules: true,
-            localIdentName: this.scopedName
+            modules: {
+              mode: "local",
+              localIdentName: this.scopedName
+            }
           };
 
           // Convert string syntax to object syntax if neccessary
@@ -121,7 +123,7 @@ class ReactCSSModules {
             },
             exclude: "node_modules",
             handleMissingStyleName: "warn",
-            generateScopedName: this.scopedName,
+            generateScopedName: this.scopedName
           }
         ]
       ]
