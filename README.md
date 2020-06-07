@@ -1,8 +1,12 @@
 # Babel-plugin-react-css-modules wrapper for Laravel Mix
 This plugin integrates [babel-plugin-react-css-modules](https://github.com/gajus/babel-plugin-react-css-modules) into the core of [Laravel Mix](https://github.com/JeffreyWay/laravel-mix). Shoutout to both @JeffreyWay and @gajus for their outstanding work!
 
-### Breaking version
-Please note that the 2.0.0 version is only compatible with Laravel Mix 5, because earlier versions contained a different Webpack context path.
+### Support Matrix
+|Laravel Mix Version|Laravel Mix React CSS Modules Version|Install command|
+|---|---|---|
+|v3-v4|v1|`npm install laravel-mix-react-css-modules@1`|
+|v5|v2|`npm install laravel-mix-react-css-modules@2`|
+|v6 (Alpha)|v3 (Alpha)|`npm install laravel-mix-react-css-modules@next`|
 
 ### Example
 Just import the package and it will automagically attach itself to Laravel Mix. Then just call `reactCSSModules` and all CSS files will be correctly processed.
