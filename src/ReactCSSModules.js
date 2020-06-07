@@ -65,27 +65,27 @@ class ReactCSSModules {
    */
   webpackConfig(config) {
     // Loop through all rules
-    config.module.rules = config.module.rules.map(rule => {
+    config.module.rules = config.module.rules.map((rule) => {
       if (!rule.loaders) {
         return rule;
       }
 
       // Loop through all loaders
-      rule.loaders = rule.loaders.map(loader => {
+      rule.loaders = rule.loaders.map((loader) => {
         if (loader.loader === "css-loader" || loader === "css-loader") {
           // Add our options to the loader
           let options = {
             modules: {
               mode: "local",
-              localIdentName: this.scopedName
-            }
+              localIdentName: this.scopedName,
+            },
           };
 
           // Convert string syntax to object syntax if neccessary
           loader =
             typeof loader === "string"
               ? {
-                  loader
+                  loader,
                 }
               : loader;
 
@@ -118,15 +118,15 @@ class ReactCSSModules {
             filetypes: {
               ".scss": {
                 syntax: "postcss-scss",
-                plugins: ["postcss-nested"]
-              }
+                plugins: ["postcss-nested"],
+              },
             },
             exclude: "node_modules",
             handleMissingStyleName: "warn",
-            generateScopedName: this.scopedName
-          }
-        ]
-      ]
+            generateScopedName: this.scopedName,
+          },
+        ],
+      ],
     };
   }
 }
