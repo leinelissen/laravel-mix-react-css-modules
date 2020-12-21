@@ -66,42 +66,61 @@ class ReactCSSModules {
   webpackConfig(config) {
     // Loop through all rules
     config.module.rules = config.module.rules.map((rule) => {
-      if (!rule.loaders) {
+      if (!rule.use && !rule.oneOf) {
         return rule;
       }
 
-      // Loop through all loaders
-      rule.loaders = rule.loaders.map((loader) => {
-        if (loader.loader === "css-loader" || loader === "css-loader") {
-          // Add our options to the loader
-          let options = {
-            modules: {
-              mode: "local",
-              localIdentName: this.scopedName,
-            },
-          };
-
-          // Convert string syntax to object syntax if neccessary
-          loader =
-            typeof loader === "string"
-              ? {
-                  loader,
-                }
-              : loader;
-
-          // Inject our options into the loader
-          loader.options = loader.options
-            ? Object.assign({}, loader.options, options)
-            : options;
-        }
-
-        return loader;
-      });
+      // Loop through all loaders on regular use options
+      rule.use = Array.isArray(rule.use) ? rule.use.map(this.replaceLoaderOptions) : rule.use;
+      
+      // Alternatively, loop through all of the oneOf options (if they exist)
+      rule.oneOf = Array.isArray(rule.oneOf) 
+        // And then replace all the loaders on each individual option
+        ? rule.oneOf.map(oneOf => {
+          oneOf.use = oneOf.use.map(this.replaceLoaderOptions);
+          return oneOf;
+        })
+        : rule.oneOf;
 
       return rule;
     });
 
     return config;
+  }
+
+  /**
+   * This function replaces the loader options for any css-loader rules that are
+   * found in the webpack config.
+   * @param {*} rule 
+   */
+  replaceLoaderOptions = (rule) => {
+    // If the loader is not the css-loader, we can safely skip it
+    if (rule.loader !== "css-loader" && rule !== "css-loader") {
+      return rule;
+    }
+
+    // Add our options to the loader
+    let options = {
+      modules: {
+        mode: "local",
+        localIdentName: this.scopedName,
+      },
+    };
+
+    // Convert string syntax to object syntax if neccessary
+    rule =
+      typeof rule === "string"
+        ? {
+            rule,
+          }
+        : rule;
+
+    // Inject our options into the loader
+    rule.options = rule.options
+      ? Object.assign({}, rule.options, options)
+      : options;
+
+    return rule;
   }
 
   /**

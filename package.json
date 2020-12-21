@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-react-css-modules",
-  "version": "3.0.0-alpha.0",
+  "version": "3.0.0-alpha.1",
   "description": "A React CSS Modules plugin for Laravel Mix",
   "main": "dist/index.js",
   "umd:main": "dist/index.umd.js",
@@ -37,11 +37,11 @@
   },
   "dependencies": {
     "babel-plugin-react-css-modules": "^5.2.6",
-    "postcss-nested": "^4.2.1",
-    "postcss-scss": "^2.1.1"
+    "postcss-nested": "^5.0.3",
+    "postcss-scss": "^3.0.4"
   },
   "devDependencies": {
-    "microbundle": "^0.12.0",
-    "prettier": "^2.0.5"
+    "microbundle": "^0.12.4",
+    "prettier": "^2.2.1"
   }
 }
