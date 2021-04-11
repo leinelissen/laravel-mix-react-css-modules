@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 class ReactCSSModules {
   /**
    * Initialise the class
@@ -35,7 +36,7 @@ class ReactCSSModules {
    * @return {Array}
    */
   dependencies() {
-    return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested"];
+    return ["babel-plugin-react-css-modules", "postcss-scss", "postcss-nested", "mini-css-extract-plugin"];
   }
 
   /**
@@ -51,9 +52,12 @@ class ReactCSSModules {
    * @return {void}
    *
    */
-  register(scopedName) {
+  register(scopedName, extractCSS) {
     if (scopedName) {
       this.scopedName = scopedName;
+    }
+    if(extractCSS) {
+      this.extractCSS = extractCSS;
     }
   }
 
@@ -70,9 +74,15 @@ class ReactCSSModules {
         return rule;
       }
 
+      let needsExtracting = false;
+
       // Loop through all loaders
       rule.loaders = rule.loaders.map(loader => {
         if (loader.loader === "css-loader" || loader === "css-loader") {
+
+          //set extracting flag
+          needsExtracting = true;
+
           // Add our options to the loader
           let options = {
             modules: true,
@@ -96,11 +106,22 @@ class ReactCSSModules {
         return loader;
       });
 
+      if(needsExtracting && this.extractCSS) {
+        rule.loaders = [
+          MiniCssExtractPlugin.loader,
+          ...rule.loaders.filter((loader) => loader != 'style-loader'),
+        ]
+      }
+
       return rule;
     });
 
     return config;
   }
+
+  webpackPlugins() {
+    return new MiniCssExtractPlugin();
+  };
 
   /**
    * Babel config to be merged with Mix's defaults.
