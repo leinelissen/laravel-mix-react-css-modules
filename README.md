@@ -1,3 +1,8 @@
+## ❗️ Deprecation Notice
+As of v6, Laravel Mix has (undocumented) support for CSS Modules. You can enable CSS Modules for your imports by renaming your files from `styles.css` / `styles.scss` to `styles.module.css` / `styles.module.scss`. This also makes it easier to integrate to the rest of the Mix ecosystem, when it comes to SASS and style extraction. For an in-depth example, please refer to [this Laravel Mix test](https://github.com/JeffreyWay/laravel-mix/blob/master/test/fixtures/integration/src/js/ScssModule.jsx) for an example.
+
+You are encouraged to make the switch to v6, and as such development for anything but v5 security fixes or occasional pull requests is halted.
+
 # Babel-plugin-react-css-modules wrapper for Laravel Mix
 This plugin integrates [babel-plugin-react-css-modules](https://github.com/gajus/babel-plugin-react-css-modules) into the core of [Laravel Mix](https://github.com/JeffreyWay/laravel-mix). Shoutout to both @JeffreyWay and @gajus for their outstanding work!
 
